@@ -1,6 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class hotel_owner_details(models.Model):
+    first_name=models.CharField(max_length=100)
+    last_name=models.CharField(max_length=100)
+    age=models.IntegerField(null=True)
+    contact=models.BigIntegerField()
+    email=models.CharField(max_length=100)
+    city=models.CharField(max_length=100,default='')
+    distict=models.CharField(max_length=100,default='')
+    state=models.CharField(max_length=100,default='')
+    description=models.CharField(max_length=500,default='')
+
 class hotel_details(models.Model):
     hotel_owner=models.ForeignKey(User,on_delete=models.CASCADE)
     hotel_name=models.CharField(max_length=200)
